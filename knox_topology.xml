@@ -80,18 +80,49 @@
 			<enabled>true</enabled>
 			<param name="knox.acl" value="*;*;*" />
 		</provider>
+		<!-- Use XASecurePDPKnox for Ranger authorization -->
+		
 		<provider>
 			<role>identity-assertion</role>
 			<name>Default</name>
 			<enabled>true</enabled>
 		</provider>
+		<!-- HA Provider Configs -->
 		<provider>
 			<role>ha</role>
 			<name>HaProvider</name>
 			<enabled>true</enabled>
 			<param>
+				<name>WEBHDFS</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>RESOURCEMANAGER</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>YARNUI</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+			</param>
+			<param>
 				<name>HDFSUI</name>
 				<value>maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>OOZIE</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>HBASE</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>WEBHCAT</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+			</param>
+			<param>
+				<name>HIVE</name>
+				<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true;zookeeperEnsemble=uds-ct1-mn1.ref.dab.02.net:2181,uds-ct1-mn2.ref.dab.02.net:2181,uds-ct1-mn3.ref.dab.02.net:2181;zookeeperNamespace=hiveserver2</value>
 			</param>
 		</provider>
 	</gateway>
@@ -108,6 +139,7 @@
 		<role>WEBHDFS</role>
       {{webhdfs_service_urls}}
    
+	
 	</service>
 	<service>
 		<role>WEBHCAT</role>
@@ -160,19 +192,31 @@
 		<url>http://your.ranger.hostname.com:6180</url>
 	</service>
 	<service>
+		<role>HBASEUI</role>
+		<url>http://hbase1.hostname.com:16010/hbase</url>
+		<url>http://hbase2.hostname.com:16010/hbase</url>
+	</service>
+	<service>
+		<role>OOZIEUI</role>
+		<url>http://oozie.hostname.com:11000/oozie</url>
+	</service>
+	<service>
 		<role>DRUID-COORDINATOR-UI</role>
       {{druid_coordinator_urls}}
    
+	
 	</service>
 	<service>
 		<role>DRUID-COORDINATOR</role>
       {{druid_coordinator_urls}}
    
+	
 	</service>
 	<service>
 		<role>DRUID-OVERLORD-UI</role>
       {{druid_overlord_urls}}
    
+	
 	</service>
 	<service>
 		<role>DRUID-OVERLORD</role>
@@ -183,20 +227,24 @@
 		<role>DRUID-ROUTER</role>
       {{druid_router_urls}}
    
+	
 	</service>
 	<service>
 		<role>DRUID-BROKER</role>
       {{druid_broker_urls}}
    
+	
 	</service>
 	<service>
 		<role>ZEPPELINUI</role>
       {{zeppelin_ui_urls}}
    
+	
 	</service>
 	<service>
 		<role>ZEPPELINWS</role>
       {{zeppelin_ws_urls}}
    
+	
 	</service>
 </topology>
