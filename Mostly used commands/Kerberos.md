@@ -102,7 +102,7 @@ grep CryptoAllPermission default_local.policy
 # _keytab=/etc/security/keytabs/nn.service.keytab; _principal=nn/`hostname -f`; hadoop org.apache.hadoop.security.KDiag --keytab $_keytab --principal $_principal
 ```
 
-**Backup KDC Database**
+**Backup KDC database**
 ```
 kdb5_util dump -verbose /var/tmp/kdc.dump
 ```
@@ -110,11 +110,11 @@ kdb5_util dump -verbose /var/tmp/kdc.dump
 ```
 kdb5_util load /var/tmp/kdc.dump
 ```
-**Create Database**
+**Create new database**
 ```
 kdb5_util create -s
 ```
-**Delete Database**
+**Delete database**
 ```
 kdb5_util destroy
 ```
