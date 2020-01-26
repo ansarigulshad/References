@@ -14,10 +14,17 @@
 ```
 ```
 # kdestroy
+```
+```
 # kvno <principal>
+```
+```
 # listprics
 # addprincs
 # getprinc <principal>
+# delprinc
+# cpw
+# getpol
 ```
 ```
 # kadmin -p 'admin/admin' -q 'listprincs'
