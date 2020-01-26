@@ -1,0 +1,15 @@
+*/admin@HADOOP.COM *
+cloudera-scm@HADOOP.COM * flume/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * hbase/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * hdfs/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * hive/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * httpfs/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * HTTP/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * hue/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * impala/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * mapred/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * oozie/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * solr/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * sqoop/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * yarn/*@HADOOP.COM
+cloudera-scm@HADOOP.COM * zookeeper/*@HADOOP.COM
