@@ -20,7 +20,7 @@
 # getprinc <principal>
 ```
 ```
-kadmin -p 'admin/admin' -q 'listprincs'
+# kadmin -p 'admin/admin' -q 'listprincs'
 ```
 
 ```
