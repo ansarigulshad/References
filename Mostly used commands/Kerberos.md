@@ -94,4 +94,10 @@ $ jar xf $JAVA_HOME/jre/lib/security/local_policy.jar default_local.policy
 grep CryptoAllPermission default_local.policy
 ```
 
-
+**Collect Info like krb5, java/os version, env Variables, keytab/principal details**
+```
+# hadoop org.apache.hadoop.security.Kdiag
+```
+```
+# _keytab=/etc/security/keytabs/nn.service.keytab; _principal=nn/`hostname -f`; hadoop org.apache.hadoop.security.KDiag --keytab $_keytab --principal $_principal
+```
