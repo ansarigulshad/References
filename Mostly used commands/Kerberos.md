@@ -19,6 +19,9 @@
 # addprincs
 # getprinc <principal>
 ```
+```
+kadmin -p 'admin/admin' -q 'listprincs'
+```
 
 ```
 # modprinc <flag> <principal> # https://web.mit.edu/kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-admin/Adding-or-Modifying-Principals.html
