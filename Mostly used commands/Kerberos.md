@@ -5,8 +5,7 @@
 # kinit -kt <keytab> <princiapl>
 # kinit -S [ServiceName] <principal>
 # kinit -r7d
-# _keytab=/etc/security/keytabs/hdfs.headless.keytab; kinit -kt $_keytab `klist -kt $_keytab | grep hdfs | awk 'NR==2{print $4}'`
-
+#_keytab=/etc/security/keytabs/hdfs.headless.keytab; kinit -kt $_keytab $(klist -kt $_keytab |sed -n "4p"|cut -d ' ' -f7)
 ```
 ```
 # klist
