@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<topology>
+  <gateway>
+    <!-- Authentication provider -->
+    <provider>
+      <role>authentication</role>
+      <name>HadoopAuth</name>
+      <enabled>true</enabled>
+      <param name="config.prefix" value="hadoop.auth.config" />
+      <param name="hadoop.auth.config.type" value="kerberos" />
+      <param name="hadoop.auth.config.signature.secret" value="E7UcS9D7" />
+      <param name="hadoop.auth.config.token.validity" value="36000" />
+      <param name="hadoop.auth.config.cookie.path" value="gateway/kdefault" />
+      <param name="hadoop.auth.config.simple.anonymous.allowed" value="false" />
+      <param name="hadoop.auth.config.kerberos.principal" value="HTTP/c3230-node2.coelab.cloudera.com@COELAB.CLOUDERA.COM" />
+      <param name="hadoop.auth.config.kerberos.keytab" value="/etc/security/keytabs/spnego.service.keytab" />
+      <param name="hadoop.auth.config.kerberos.name.rules" value="DEFAULT" />
+    </provider>
+
+    <!-- Identity assertion provider -->
+    <provider>
+      <role>identity-assertion</role>
+      <name>SwitchCase</name>
+      <enabled>true</enabled>
+      <param name="principal.case" value="lower" />
+      <param name="group.principal.case" value="lower" />
+    </provider>
+
+    <!-- Authorization provider -->
+    <provider>
+      <role>authorization</role>
+      <name>AclsAuthz</name>
+      <enabled>true</enabled>
+      <param name="knox.acl" value="*;*;*" />
+    </provider>
+
+    <!-- HA provider -->
+    <provider>
+      <role>ha</role>
+      <name>HaProvider</name>
+      <enabled>true</enabled>
+      <param name="WEBHDFS" value="maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true" />
+      <param name="HIVE" value="maxFailoverAttempts=3;failoverSleep=1000;enabled=true;zookeeperEnsemble=c3230-node2.coelab.cloudera.com:2181,c3230-node3.coelab.cloudera.com:2181,c3230-node4.coelab.cloudera.com:2181;zookeeperNamespace=hiveserver2" />
+      <param name='HBASE' value='maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true'/>
+      <param name='OOZIE' value='maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true'/>
+      <param name='WEBHCAT' value='maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true'/>
+      <param name='RESOURCEMANAGER' value='maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true'/>
+      <param name='JOBTRACKER' value='maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true'/>
+    </provider>
+  </gateway>
+
+  <!-- Services -->
+
+            <service>
+                <role>NAMENODE</role>
+                <url>hdfs://c3230-node2.coelab.cloudera.com:8020</url>
+            </service>
+
+            <service>
+                <role>JOBTRACKER</role>
+                <url>rpc://c3230-node2.coelab.cloudera.com:8050</url>
+            </service>
+
+            <service>
+                <role>WEBHDFS</role>
+                <url>http://c3230-node2.coelab.cloudera.com:50070/webhdfs</url>
+
+            </service>
+
+            <service>
+                <role>WEBHCAT</role>
+                <url>http://c3230-node3.coelab.cloudera.com:50111/templeton</url>
+            </service>
+
+            <service>
+                <role>OOZIE</role>
+                <url>http://None:11000/oozie</url>
+            </service>
+
+            <service>
+                <role>WEBHBASE</role>
+                <url>http://None:8080</url>
+            </service>
+
+            <service>
+                <role>HIVE</role>
+                <url>http://c3230-node3.coelab.cloudera.com:10001/cliservice</url>
+            </service>
+
+            <service>
+                <role>RESOURCEMANAGER</role>
+                <url>http://c3230-node2.coelab.cloudera.com:8088/ws</url>
+            </service>
+</topology>
