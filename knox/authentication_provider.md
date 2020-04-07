@@ -1,0 +1,82 @@
+### ShiroProvider
+
+```
+<provider>
+	<role>authentication</role>
+	<name>ShiroProvider</name>
+	<enabled>true</enabled>
+	<param>
+		<name>sessionTimeout</name>
+		<value>30</value>
+	</param>
+	<param>
+		<name>main.ldapRealm</name>
+		<value>org.apache.hadoop.gateway.shirorealm.KnoxLdapRealm</value>
+	</param>
+	<!-- changes for AD/user sync -->
+	<param>
+		<name>main.ldapContextFactory</name>
+		<value>org.apache.hadoop.gateway.shirorealm.KnoxLdapContextFactory</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.contextFactory</name>
+		<value>$ldapContextFactory</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.contextFactory.url</name>
+		<value>ldap://ad.cloudera.com:389</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.contextFactory.systemUsername</name>
+		<value>CN=ldapadmin,DC=HORTONWORKS,DC=COM</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.contextFactory.systemPassword</name>
+		<value>hadoop123</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.contextFactory.authenticationMechanism</name>
+		<value>simple</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.searchBase</name>
+		<value>DC=HORTONWORKS,DC=COM</value>
+	</param>
+  <!-- posixAccount, person, user -->
+	<param>
+		<name>main.ldapRealm.userObjectClass</name>
+		<value>posixAccount</value>
+	</param>
+  <!-- uid, sAMAccountName -->
+	<param>
+		<name>main.ldapRealm.userSearchAttributeName</name>
+		<value>uid</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.authorizationEnabled</name>
+		<value>true</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.groupSearchBase</name>
+		<value>DC=HORTONWORKS,DC=COM</value>
+	</param>
+  <!-- posixGroup, group -->
+	<param>
+		<name>main.ldapRealm.groupObjectClass</name>
+		<value>posixGroup</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.groupIdAttribute</name>
+		<value>cn</value>
+	</param>
+  <!-- memberUid, member, memberOf -->
+	<param>
+		<name>main.ldapRealm.memberAttribute</name>
+		<value>memberUid</value>
+	</param>
+	<param>
+		<name>urls./**</name>
+		<value>authcBasic</value>
+	</param>
+</provider>
+```
