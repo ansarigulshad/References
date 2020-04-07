@@ -1,0 +1,34 @@
+```
+<topology>
+    <gateway>
+        <provider>
+            <role>federation</role>
+            <name>SSOCookieProvider</name>
+            <enabled>true</enabled>
+            <param name="sso.authentication.provider.url" value="https://knox.cloudera.com:8443/gateway/knoxsso/api/v1/websso" />
+        </provider>
+        <provider>
+            <role>identity-assertion</role>
+            <name>Default</name>
+            <enabled>true</enabled>
+        </provider>
+        <provider>
+            <role>authorization</role>
+            <name>XASecurePDPKnox</name>
+            <enabled>true</enabled>
+        </provider>
+    </gateway>
+    <service>
+        <role>AMBARI</role>
+        <url>https://ambari.cloudera.com:8443</url>
+    </service>
+    <service>
+        <role>AMBARIUI</role>
+        <url>https://ambari.cloudera.com:8443</url>
+    </service>
+    <service>
+        <role>SMM</role>
+        <url>https://smm.cloudera.com:8587</url>
+    </service>
+</topology>
+```
