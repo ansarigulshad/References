@@ -1,0 +1,14 @@
+```
+<param> 
+<name>main.cacheManager</name> 
+<value>org.apache.shiro.cache.ehcache.EhCacheManager</value> 
+</param> 
+<param> 
+<name>main.securityManager.cacheManager</name> 
+<value>$cacheManager</value> 
+</param> 
+<param> 
+<name>main.ldapRealm.authenticationCachingEnabled</name> 
+<value>true</value> 
+</param> 
+```
