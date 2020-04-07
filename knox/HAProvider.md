@@ -1,0 +1,53 @@
+```
+<!-- HA Provider Configs -->
+
+<provider>
+	<role>ha</role>
+	<name>HaProvider</name>
+	<enabled>true</enabled>
+	<param>
+		<name>WEBHDFS</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>HDFSUI</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;maxRetryAttempts=300;retrySleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>RESOURCEMANAGER</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+  	<param>
+		<name>YARN</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>YARNUI</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>YARNUIV2</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>OOZIE</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>OOZIEUI</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>HBASE</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>WEBHCAT</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true</value>
+	</param>
+	<param>
+		<name>HIVE</name>
+		<value>maxFailoverAttempts=3;failoverSleep=1000;enabled=true;zookeeperEnsemble=zk1.hortonworks.com:2181,zk2.hortonworks.com:2181,zk3.hortonworks.com:2181;zookeeperNamespace=hiveserver2</value>
+	</param>
+</provider>
+```
