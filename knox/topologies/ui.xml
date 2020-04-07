@@ -1,4 +1,3 @@
-```
 <topology>
     <gateway>
         <provider>
@@ -29,4 +28,3 @@
       <url>http://c4230-node2.coelab.cloudera.com:6080</url>
    </service>
 </topology>
-```
