@@ -1,0 +1,23 @@
+<topology>
+	<generated>true</generated>
+	<gateway>
+		<provider>
+			<role>authentication</role>
+			<name>Anonymous</name>
+			<enabled>true</enabled>
+		</provider>
+		<provider>
+			<role>authorization</role>
+			<name>AclsAuthz</name>
+			<enabled>true</enabled>
+			<param>
+				<name>WEBHDFS.acl</name>
+				<value>*;*;172.25.43.145</value>
+			</param>
+		</provider>
+	</gateway>
+	<service>
+		<role>WEBHDFS</role>
+		<url>http://c3230-node2.squadron.support.hortonworks.com:50070/webhdfs</url>;
+	</service>
+</topology>
