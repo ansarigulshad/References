@@ -1,0 +1,92 @@
+
+### Services
+```
+<service>
+	<role>NAMENODE</role>
+	<url>hdfs://c3230-node2.coelab.cloudera.com:8020</url>
+</service>
+<service>
+	<role>JOBTRACKER</role>
+	<url>rpc://c3230-node3.coelab.cloudera.com:8050</url>
+</service>
+<service>
+	<role>WEBHDFS</role>
+	<url>http://c3230-node2.coelab.cloudera.com:50070/webhdfs</url>
+</service>
+<service>
+	<role>WEBHCAT</role>
+	<url>http://c3230-node3.coelab.cloudera.com:50111/templeton</url>
+</service>
+<service>
+	<role>OOZIE</role>
+	<url>http://c3230-node2.coelab.cloudera.com:11000/oozie</url>
+</service>
+<service>
+	<role>WEBHBASE</role>
+	<url>http://c3230-node2.coelab.cloudera.com:8080</url>
+</service>
+<service>
+	<role>HIVE</role>
+	<url>http://c3230-node3.coelab.cloudera.com:10001/cliservice</url>
+</service>
+<service>
+	<role>LLAP</role>
+	<url>http://c3230-node3.coelab.cloudera.com:10500/cliservice </url>
+</service>
+<service>
+	<role>HDFSUI</role>
+	<url>http://c3230-node.2coelab.cloudera.com:50070</url>
+	<url>http://c3230-node3.coelab.cloudera.com:50070</url>
+</service>
+<service>
+	<role>RESOURCEMANAGER</role>
+	<url>http://c3230-node3.coelab.cloudera.com:8088/ws</url>
+</service>
+<service>
+	<role>YARN</role>
+	<url>http://c3230-node2.coelab.cloudera.com:8088</url>
+	<url>http://c3230-node3.coelab.cloudera.com:8088</url>
+</service>
+<service>
+	<role>YARNUI</role>
+	<url>http://c3230-node2.coelab.cloudera.com:8088</url>
+	<url>http://c3230-node3.coelab.cloudera.com:8088</url>
+</service>
+<service>
+	<role>YARNUIV2</role>
+	<url>http://c3230-node2.coelab.cloudera.com:8088</url>
+	<url>http://c3230-node3.coelab.cloudera.com:8088</url>
+</service>
+<service>
+	<role>JOBHISTORYUI</role>
+	<url>http://c3230-node2.coelab.cloudera.com:19888</url>
+</service>
+<service>
+	<role>OOZIEUI</role>
+	<url>http://c3230-node2.coelab.cloudera.com:11000/oozie/</url>
+</service>
+<service>
+	<role>AMBARI</role>
+	<url>http://c3230-node1.coelab.cloudera.com:8080</url>
+</service>
+<service>
+	<role>AMBARIUI</role>
+	<url>http://c3230-node1.coelab.cloudera.com:8080</url>
+</service>
+<service>
+	<role>RANGER</role>
+	<url>http://c3230-node2.coelab.cloudera.com:6080</url>
+</service>
+<service>
+	<role>RANGERUI</role>
+	<url>http://c3230-node2.coelab.cloudera.com:6080</url>
+</service>
+<service>
+	<role>ZEPPELINUI</role>
+	<url>http://c3230-node2.coelab.cloudera.com:9995</url>
+</service>
+<service>
+	<role>ZEPPELINWS</role>
+	<url>ws://c3230-node2.coelab.cloudera.com:9995/ws</url>
+</service>undefined</service>
+```
