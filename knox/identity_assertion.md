@@ -1,0 +1,60 @@
+### Default
+```
+<provider>
+   <role>identity-assertion</role>
+   <name>Default</name>
+   <enabled>true</enabled>
+</provider>
+```
+
+### HadoopGroupProvider
+
+```
+<provider>
+	<role>identity-assertion</role>
+	<name>HadoopGroupProvider</name>
+	<enabled>true</enabled>
+	<param>
+		<name>hadoop.security.group.mapping</name>
+		<value>org.apache.hadoop.security.LdapGroupsMapping</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.bind.user</name>
+		<value>cn=binduser1,dc=hortonworks,dc=net</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.bind.password</name>
+		<value>BadPass#1</value>
+	</param>
+	<!--
+  <param>
+    <name>hadoop.security.group.mapping.ldap.bind.password.file</name>
+    <value>/etc/knox/conf/ldapPass.txt</value>
+  </param>
+  -->
+	<param>
+		<name>hadoop.security.group.mapping.ldap.url</name>
+		<value>ldap://ad.hortonworks.net:389</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.base</name>
+		<value>dc=hortonworks,dc=net</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.search.filter.user</name>
+		<value>(&amp;(sAMAccountName={0}))</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.search.filter.group</name>
+		<value>(objectclass=group)</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.search.attr.member</name>
+		<value>member</value>
+	</param>
+	<param>
+		<name>hadoop.security.group.mapping.ldap.search.attr.group.name</name>
+		<value>cn</value>
+	</param>
+</provider>
+```
