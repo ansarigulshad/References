@@ -42,25 +42,18 @@
 		<name>main.ldapRealm.searchBase</name>
 		<value>DC=HORTONWORKS,DC=COM</value>
 	</param>
-  <!-- posixAccount, person, user -->
-	<param>
-		<name>main.ldapRealm.userObjectClass</name>
-		<value>posixAccount</value>
-	</param>
-  <!-- uid, sAMAccountName -->
-	<param>
-		<name>main.ldapRealm.userSearchAttributeName</name>
-		<value>uid</value>
-	</param>
-	<param>
-		<name>main.ldapRealm.authorizationEnabled</name>
-		<value>true</value>
-	</param>
 	<param>
 		<name>main.ldapRealm.groupSearchBase</name>
 		<value>DC=HORTONWORKS,DC=COM</value>
 	</param>
-  <!-- posixGroup, group -->
+	<param>
+		<name>main.ldapRealm.userObjectClass</name>
+		<value>posixAccount</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.userSearchAttributeName</name>
+		<value>uid</value>
+	</param>
 	<param>
 		<name>main.ldapRealm.groupObjectClass</name>
 		<value>posixGroup</value>
@@ -69,10 +62,13 @@
 		<name>main.ldapRealm.groupIdAttribute</name>
 		<value>cn</value>
 	</param>
-  <!-- memberUid, member, memberOf -->
 	<param>
 		<name>main.ldapRealm.memberAttribute</name>
 		<value>memberUid</value>
+	</param>
+	<param>
+		<name>main.ldapRealm.authorizationEnabled</name>
+		<value>true</value>
 	</param>
 	<param>
 		<name>urls./**</name>
