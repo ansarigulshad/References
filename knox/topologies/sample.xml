@@ -1,0 +1,73 @@
+```
+<topology>
+    <gateway>
+        <provider>
+            <role>webappsec</role>
+            <name>WebAppSec</name>
+            <enabled>true</enabled>
+            <param name="xframe.options.enabled" value="true"/>
+        </provider>
+        <provider>
+            <role>authentication</role>
+            <name>ShiroProvider</name>
+            <enabled>true</enabled>
+            
+            <!-- General settings -->
+            <param name="sessionTimeout" value="30"/>
+            <param name="redirectToUrl" value="/gateway/knoxsso/knoxauth/login.html"/>
+            <param name="restrictedCookies" value="rememberme,WWW-Authenticate"/>
+            <param name="urls./**" value="authcBasic"/>
+            
+            <!-- ContextFactory settings -->
+            <param name="main.ldapContextFactory" value="org.apache.hadoop.gateway.shirorealm.KnoxLdapContextFactory"/>
+            <param name="main.ldapRealm" value="org.apache.hadoop.gateway.shirorealm.KnoxLdapRealm"/>
+            <param name="main.ldapRealm.contextFactory" value="$ldapContextFactory"/>
+            <param name="main.ldapRealm.contextFactory.url" value="ldap://ad.cloudera.com:389"/>
+            <param name="main.ldapRealm.contextFactory.authenticationMechanism" value="simple"/>
+            <param name="main.ldapRealm.contextFactory.systemUsername" value="CN=ldapbind,OU=users,DC=cloudera,DC=com"/>
+            <param name="main.ldapRealm.contextFactory.systemPassword" value="${ALIAS=MyKnoxAlias}"/>
+            
+            <!--  LDAP search attirbutes -->
+            <param name="main.ldapRealm.searchBase" value="OU=Production,DC=cloudera,DC=com"/>
+            <param name="main.ldapRealm.userSearchBase" value="OU=Production,DC=cloudera,DC=com"/>
+            <param name="main.ldapRealm.userObjectClass" value="user"/>
+            <param name="main.ldapRealm.userSearchAttributeName" value="sAMAccountName"/>
+            <param name="main.ldapRealm.authorizationEnabled" value="true"/>
+            <param name="main.ldapRealm.groupSearchBase" value="OU=Groups,OU=Production,DC=cloudera,DC=com"/>
+            <param name="main.ldapRealm.groupObjectClass" value="group"/>
+            <param name="main.ldapRealm.groupIdAttribute" value="cn"/>
+            <param name="main.ldapRealm.memberAttribute" value="member"/>
+        </provider>
+        <provider>
+            <role>identity-assertion</role>
+            <name>Default</name>
+            <enabled>true</enabled>
+        </provider>
+        <provider>
+            <role>authorization</role>
+            <name>XASecurePDPKnox</name>
+            <enabled>true</enabled>
+        </provider>
+
+    </gateway>
+    <application>
+        <name>knoxauth</name>
+    </application>
+
+    <service>
+        <role>KNOXSSO</role>
+        <param name="knoxsso.cookie.secure.only"  value="true"/>
+        <param name="knoxsso.token.ttl"  value="30000"/>
+        <param name="knoxsso.redirect.whitelist.regex"  value="^https?:\/\/(srv-ulo-.*\.prod\.gw-4u\.com|localhost|127\.0\.0\.1|0:0:0:0:0:0:0:1|::1):[0-9].*$"/>
+    </service>
+    
+    <service>
+        <role>KNOXTOKEN</role>
+        <param name="knox.token.ttl" value="30000"/>
+        <param name="knox.token.audiences" value="tokenbased"/>
+        <param name="knox.token.target.url" value="https://srv-ulo-ambari2.prod.gw-4u.com:8443/gateway/knoxsso/tokenbased"/>
+    </service>
+<!-- Other Service Here  -->
+
+</topology>
+```
