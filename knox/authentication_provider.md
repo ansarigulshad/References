@@ -88,7 +88,7 @@
 	<param name="hadoop.auth.config.signature.secret" value="E7UcS9D7" />
 	<param name="hadoop.auth.config.token.validity" value="36000" />
 	<param name="hadoop.auth.config.cookie.domain" value="coelab.cloudera.com" />
-	<param name="hadoop.auth.config.cookie.path" value="gateway/kdefault/hive" />
+	<param name="hadoop.auth.config.cookie.path" value="gateway/kdefault" />
 	<param name="hadoop.auth.config.simple.anonymous.allowed" value="false" />
 	<param name="hadoop.auth.config.kerberos.principal" value="HTTP/c3230-node2.coelab.cloudera.com@COELAB.CLOUDERA.COM" />
 	<param name="hadoop.auth.config.kerberos.keytab" value="/etc/security/keytabs/spnego.service.keytab" />
